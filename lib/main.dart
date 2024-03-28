@@ -73,7 +73,7 @@ class _HomePageState extends State<HomePage> {
           setState(() => currentIndex = value);
           
         },
-        selectedItemColor: Color.fromARGB(255, 54, 108, 244),
+        selectedItemColor: const Color.fromARGB(255, 54, 108, 244),
         unselectedItemColor: Colors.grey,
         items: const [
             BottomNavigationBarItem(
