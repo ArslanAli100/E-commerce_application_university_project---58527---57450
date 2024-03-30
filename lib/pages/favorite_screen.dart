@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_university_project/providers/favorite_providers.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 
 class FavoriteScreen extends StatefulWidget {
   const FavoriteScreen({super.key});
@@ -16,10 +17,10 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
     return Scaffold(
       body: Column(
         children: [
-          const Padding(
-            padding: EdgeInsets.only(top:20, left:20),
+           Padding(
+            padding: const EdgeInsets.only(top:20, left:20),
             child: Row(
-            children: [
+            children: const [
               Text(
                 "Favorites",
                 style: TextStyle(fontSize: 27, fontWeight: FontWeight.bold),
@@ -33,7 +34,20 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
             itemBuilder: (context, index) {
               return Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: ListTile(
+                child: Slidable(
+                  endActionPane: ActionPane(
+                    motion: const ScrollMotion(),
+                    children: [
+                      SlidableAction(
+                        onPressed: (context) {},
+                        backgroundColor: Colors.red,
+                        foregroundColor: Colors.white,
+                        icon: Icons.delete,
+                        label: 'Delete',
+                      ),  
+                    ],
+                  ),
+                child: ListTile(  
                   title: Text(
                     finalList[index].name,
                     style: const TextStyle(
@@ -55,7 +69,8 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                       ),
                       tileColor: Colors.white,
                   ),
-                );
+                ),
+               );
               }, 
             ),
           ),
