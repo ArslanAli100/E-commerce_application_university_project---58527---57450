@@ -39,7 +39,10 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                     motion: const ScrollMotion(),
                     children: [
                       SlidableAction(
-                        onPressed: (context) {},
+                        onPressed: (context) {
+                          finalList.removeAt(index);
+                          setState(() {});
+                        },
                         backgroundColor: Colors.red,
                         foregroundColor: Colors.white,
                         icon: Icons.delete,
