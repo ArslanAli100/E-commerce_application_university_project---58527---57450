@@ -1,16 +1,21 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class ProfileScreen extends StatefulWidget {
+class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
 
-  @override
-  State<ProfileScreen> createState() => _ProfileScreenState();
-}
+  //Sign out
 
-class _ProfileScreenState extends State<ProfileScreen> {
+  void signUserOut() {
+    FirebaseAuth.instance.signOut();
+  }
+
   @override
-  Widget build (BuildContext context) {
-    return const Scaffold(
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(actions: [
+        IconButton(onPressed: signUserOut, icon: Icon(Icons.logout))
+      ]),
       body: Center(child: Text("Profile Screen"),),
     );
   }

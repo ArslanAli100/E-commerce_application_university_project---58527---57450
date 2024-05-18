@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_university_project/models/product.dart';
+import 'package:flutter_application_university_project/pages/cart_details.dart';
+import 'package:flutter_application_university_project/providers/cart_provider.dart';
 import 'package:flutter_application_university_project/widgets/available_size.dart';
 
 class DetailsScreen extends StatelessWidget {
@@ -8,6 +10,7 @@ class DetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final provider = CartProvider.of(context);
     return Scaffold(
       resizeToAvoidBottomInset : false,
       appBar: AppBar(
@@ -25,7 +28,7 @@ class DetailsScreen extends StatelessWidget {
                 height: 220,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: Colors.red.shade100,
+                  color: Color.fromARGB(255, 202, 239, 255),
                 ),
                 child: Image.asset(product.image, fit: BoxFit.cover),
               ),
@@ -115,7 +118,7 @@ class DetailsScreen extends StatelessWidget {
                     SizedBox(width: 8.0,),
                     CircleAvatar(
                       radius: 16,
-                      backgroundColor: Colors.red,
+                      backgroundColor: Color.fromARGB(255, 0, 0, 0),
                     ),
                     SizedBox(width: 8.0,),
                     CircleAvatar(
@@ -155,7 +158,15 @@ class DetailsScreen extends StatelessWidget {
                         ),
                       ),
                       ElevatedButton.icon(
-                        onPressed: () {},
+                        onPressed: () {
+                          provider.toggleProduct(product);
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const CartDetails(),
+                          ),
+                          ); 
+                        },
                         icon: const Icon(Icons.send),
                         label: const Text("Add to cart"),
                       )  
