@@ -56,7 +56,7 @@ class _HomePageState extends State<HomePage> {
     List screens = [
     const HomeScreen(),
     const FavoriteScreen(),
-    const ProfileScreen(),
+    ProfileScreen(),
   ];
 
   @override
