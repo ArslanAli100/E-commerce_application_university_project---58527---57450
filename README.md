@@ -1,4 +1,4 @@
-# flutter_application_university_project
+# E-Commerce_flutter_application_university_project
 
 Sportswear E-Commerce Mobile Application
 
@@ -52,6 +52,7 @@ USAGE
 -View and manage the items in the list.
 
 CONTACT
+Developed by Arslan Alizada
 For any inquiries or feedback, please contact us at arslan@gmail.com.
 
 Thank you for using our Sportswear E-Commerce Mobile Application! We hope you enjoy your shopping experience.
